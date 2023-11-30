@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>exercicio 01</title>
+</head>
+<body>
+
+<h1>exercicio 01</h1>
+<p id="contador"></p>
+<script>
+    // Script JavaScript para contar hasta 10
+    document.addEventListener('DOMContentLoaded', function() {
+      var contadorElemento = document.getElementById('contador');
+      
+      function contarHasta10() {
+        var i = 1;
+        function mostrarNumero() {
+          contadorElemento.textContent = i;
+          i++;
+          if (i <= 10) {
+            setTimeout(mostrarNumero, 1000); // Esperar 1 segundo antes de mostrar el siguiente número
+          }
+        }
+        mostrarNumero(); // Llamamos a la función por primera vez
+      }
+  
+      // Llamamos a la función para comenzar a contar cuando se carga la página
+      contarHasta10();
+    });
+  </script>

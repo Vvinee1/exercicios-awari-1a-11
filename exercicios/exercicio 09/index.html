@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contagem de Pessoas com 18 anos ou mais</title>
+</head>
+<body>
+
+<h1>Contagem de Pessoas com 18 anos ou mais</h1>
+
+<script>
+  function contarMaioresDeIdade() {
+    var contador = 0;
+
+    for (let i = 1; i <= 10; i++) {
+      var idadeInput = document.createElement('input');
+      idadeInput.type = 'number';
+      idadeInput.placeholder = 'Digite a idade da pessoa ' + i;
+      idadeInput.id = 'idade' + i;
+
+      document.body.appendChild(idadeInput);
+
+      if (i < 10) {
+        document.body.appendChild(document.createElement('br')); // Adicionar quebra de linha entre os campos
+      }
+    }
+
+    var botao = document.createElement('button');
+    botao.textContent = 'Calcular';
+    botao.onclick = function() {
+      for (let i = 1; i <= 10; i++) {
+        var idade = parseInt(document.getElementById('idade' + i).value, 10);
+
+        if (!isNaN(idade)) {
+          if (idade >= 18) {
+            contador++;
+          }
+        } else {
+          alert('Por favor, digite uma idade válida.');
+          return; // Encerrar a função se houver uma idade inválida
+        }
+      }
+
+      alert('Quantidade de pessoas com 18 anos ou mais: ' + contador);
+    };
+
+    document.body.appendChild(document.createElement('br')); // Adicionar quebra de linha antes do botão
+    document.body.appendChild(botao);
+  }
+
+  contarMaioresDeIdade();
+</script>
+
+</body>
+</html>
+

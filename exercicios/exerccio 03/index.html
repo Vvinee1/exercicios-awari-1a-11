@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador Personalizado</title>
+</head>
+<body>
+
+<h1>Contador Personalizado</h1>
+<p id="contador"></p>
+<label for="numero">Digite um número:</label>
+<input type="number" id="numero" />
+<button onclick="iniciarContagem()">Iniciar Contagem</button>
+
+<script>
+  var contadorElemento = document.getElementById('contador');
+  var inputNumero = document.getElementById('numero');
+
+  function contarAteNumero(alvo) {
+    var i = 1;
+    function mostrarNumero() {
+      contadorElemento.textContent = i;
+      i++;
+      if (i <= alvo) {
+        setTimeout(mostrarNumero, 1000); // Esperar 1 segundo antes de mostrar o próximo número
+      }
+    }
+    mostrarNumero(); // Chamar a função pela primeira vez
+  }
+
+  function iniciarContagem() {
+    var numeroAlvo = parseInt(inputNumero.value, 10); // Converter o valor do input para um número
+    if (!isNaN(numeroAlvo) && numeroAlvo > 0) {
+      contarAteNumero(numeroAlvo);
+    } else {
+      alert('Por favor, digite um número válido maior que zero.');
+    }
+  }
+</script>
+
+</body>
+</html>

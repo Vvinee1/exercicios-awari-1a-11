@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contador de 10 a 1</title>
+</head>
+<body>
+
+<h1>Contador de 10 a 1</h1>
+<p id="contador"></p>
+<button onclick="iniciarContagem()">Iniciar Contagem</button>
+
+<script>
+  var contadorElemento = document.getElementById('contador');
+
+  function contarDe10A1() {
+    var i = 10;
+    function mostrarNumero() {
+      contadorElemento.textContent = i;
+      i--;
+      if (i >= 1) {
+        setTimeout(mostrarNumero, 1000); 
+      }
+    }
+    mostrarNumero(); 
+  }
+
+  function iniciarContagem() {
+    contarDe10A1();
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Números Primos de 0 a 100</title>
+</head>
+<body>
+
+<h1>Números Primos de 0 a 100</h1>
+<p id="primos"></p>
+
+<script>
+  function verificarPrimo(numero) {
+    for (let i = 2; i < numero; i++) {
+      if (numero % i === 0) {
+        return false; // Não é primo
+      }
+    }
+    return numero > 1; // É primo se for maior que 1
+  }
+
+  function encontrarPrimos() {
+    var primosEncontrados = [];
+    for (let i = 0; i <= 100; i++) {
+      if (verificarPrimo(i)) {
+        primosEncontrados.push(i);
+      }
+    }
+    return primosEncontrados;
+  }
+
+  var primosElemento = document.getElementById('primos');
+  primosElemento.textContent = encontrarPrimos().join(', ');
+</script>
+
+</body>
+</html>
